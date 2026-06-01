@@ -21,6 +21,8 @@ public class MovementController : MonoBehaviour
     public bool isOnPlatform;
     public Rigidbody2D platformRb;
 
+    public ParticleController particleController;
+
     Vector2 relativeTransform;
 
     private void Awake()
@@ -61,6 +63,7 @@ public class MovementController : MonoBehaviour
 
     public void Flip()
     {
+        particleController.PlayTouchParticle(wallCheckPoint.position);
         transform.Rotate(0, 180, 0);
         UpdateRelativeTransform();
     }
